@@ -37,6 +37,6 @@ label.checkbox {
 	width: auto;
 }
 
-input, label {
+div#calc div {
 	margin-top: 7px;
 }
