@@ -1,0 +1,14 @@
+[
+  {
+    "outputFileName": "wwwroot/inn_ogrn.min.js",
+    "inputFiles": [
+      "wwwroot/inn_ogrn.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/inn_ogrn.min.css",
+    "inputFiles": [
+      "wwwroot/inn_ogrn.css"
+    ]
+  }
+]
