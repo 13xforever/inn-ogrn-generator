@@ -1,6 +1,6 @@
 input[type='text'] {
 	width: 110px;
-	margin-top: 7px;
+
 }
 
 input[type='button'] {
@@ -35,4 +35,8 @@ label {
 
 label.checkbox {
 	width: auto;
+}
+
+input, label {
+	margin-top: 7px;
 }
