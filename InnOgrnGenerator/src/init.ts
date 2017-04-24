@@ -1,32 +1,35 @@
-var innul;
-var innfl;
-var ogrnul;
-var ogrnfl;
-var okpo;
-var snils;
-var innulButton;
-var innflButton;
-var ogrnulButton;
-var ogrnflButton;
-var okpoButton;
-var snilsButton;
+/// <reference path="CalculatorBase.ts"/>
+/// <reference path="CalculatorInnUl.ts"/>
+/// <reference path="CalculatorInnFl.ts"/>
+/// <reference path="CalculatorOgrnUl.ts"/>
+/// <reference path="CalculatorOgrnFl.ts"/>
+/// <reference path="CalculatorOkpo.ts"/>
+/// <reference path="CalculatorSnils.ts"/>
 
-document.addEventListener("DOMContentLoaded", () => {
-    innul = document.getElementById('innul');
-    innfl = document.getElementById('innfl');
-    ogrnul = document.getElementById('ogrnul');
-    ogrnfl = document.getElementById('ogrnfl');
-    okpo = document.getElementById('okpo');
-    snils = document.getElementById('snils');
-    innulButton = document.getElementById('innulbutton');
-    innflButton = document.getElementById('innflbutton');
-    ogrnulButton = document.getElementById('ogrnulbutton');
-    ogrnflButton = document.getElementById('ogrnflbutton');
-    okpoButton = document.getElementById('okpobutton');
-    snilsButton = document.getElementById('snilsbutton');
+namespace InnKppCalculator {
+    export function init(): CalculatorBase[]
+    {
+        return [
+            new CalculatorInnUl("innul"),
+            new CalculatorInnFl("innfl"),
+            new CalculatorOgrnUl("ogrnul"),
+            new CalculatorOgrnFl("ogrnfl"),
+            new CalculatorOkpo("okpo"),
+            new CalculatorSnils("snils", "format_snils")
+        ] as CalculatorBase[];
+    }
+}
 
-    var input = document.getElementsByTagName('input');
-    for (var i = 0; i < input.length; i++)
-        if (input[i].type == 'text' && input[i].oninput)
-            input[i].oninput();
-});
+declare class Clipboard {
+    constructor(selector: string);
+}
+
+var calculators: any;
+var clipboard: Clipboard;
+
+document.addEventListener("DOMContentLoaded",
+    () =>
+    {
+        calculators = InnKppCalculator.init();
+        clipboard = new Clipboard('input.cb-copy');
+    });
