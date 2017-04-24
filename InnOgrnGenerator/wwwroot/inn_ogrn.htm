@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Калькулятор ИНН и ОГРН</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="stylesheet" type="text/css" href="inn_ogrn.min.css"/>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+	<script type="text/javascript" src="inn_ogrn.min.js"></script>
+</head>
+<body>
+	<div id="calc">
+		<div>
+			<label for="innul">ИНН ЮЛ</label>
+			<input id="innul" type="text" maxlength="10" placeholder="10 цифр">
+			<input id="innulbutton" type="button" value="Random">
+			<input id="innulcopy" type="button" class="cb-copy" data-clipboard-target="#innul" value="Copy">
+		</div>
+		<div>
+			<label for="innfl">ИНН ИП</label>
+			<input id="innfl" type="text" maxlength="12" placeholder="12 цифр">
+			<input id="innflbutton" type="button" value="Random">
+			<input id="innflcopy" type="button" class="cb-copy" data-clipboard-target="#innfl" value="Copy">
+		</div>
+		<div>
+			<label for="ogrnul">ОГРН ЮЛ</label>
+			<input id="ogrnul" type="text" maxlength="13" placeholder="13 цифр">
+			<input id="ogrnulbutton" type="button" value="Random">
+			<input id="ogrnulcopy" type="button" class="cb-copy" data-clipboard-target="#ogrnul" value="Copy">
+		</div>
+		<div>
+			<label for="ogrnfl">ОГРН ИП</label>
+			<input id="ogrnfl" type="text" maxlength="15" placeholder="15 цифр">
+			<input id="ogrnflbutton" type="button" value="Random">
+			<input id="ogrnflcopy" type="button" class="cb-copy" data-clipboard-target="#ogrnfl" value="Copy">
+		</div>
+		<div>
+			<label for="okpo">ОКПО</label>
+			<input id="okpo" type="text" maxlength="14" placeholder="от 8 до 14 цифр">
+			<input id="okpobutton" type="button" value="Random">
+			<input id="okpocopy" type="button" class="cb-copy" data-clipboard-target="#okpo" value="Copy">
+		</div>
+		<div>
+			<label for="snils">СНИЛС</label>
+			<input id="snils" type="text" maxlength="14" placeholder="11 цифр">
+			<input id="snilsbutton" type="button" value="Random">
+			<input id="snilscopy" type="button" class="cb-copy" data-clipboard-target="#snils" value="Copy">
+		</div>
+		<div>
+			<input id="format_snils" type="checkbox">
+			<label for="format_snils" class="checkbox">Форматировать СНИЛС</label>
+		</div>
+	</div>
+</body>
+</html>
