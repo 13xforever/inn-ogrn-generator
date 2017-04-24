@@ -27,7 +27,7 @@ declare class Clipboard {
 var calculators: any;
 var clipboard: Clipboard;
 
-document.addEventListener("DOMContentLoaded",
+window.addEventListener("load",
     () =>
     {
         calculators = InnKppCalculator.init();
