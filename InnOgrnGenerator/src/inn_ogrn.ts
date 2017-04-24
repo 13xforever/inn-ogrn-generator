@@ -1,16 +1,3 @@
-'use strict'; // @ts-check
-
-function GetRandomNumber(str, length, force, validFirstDigits)
-{
-	var result = GetNumbersFromString("" + str);
-	if (result.length > length || force)
-		result = "";
-	if (validFirstDigits && validFirstDigits.length)
-		result += validFirstDigits[Math.floor(Math.random()*validFirstDigits.length)];
-	for (var i = result.length; i < length; i++)
-		result += Math.floor(Math.random() * 10);
-	return result;
-}
 function CalcInnUl(inn)
 {
 	if (inn == null) return "";
@@ -80,15 +67,6 @@ function CalcOkpo(okpo)
 	}
 	c = (c % 11) % 10;
 	return okpo.substr(0, okpo.length - 1) + c;
-}
-function GetNumbersFromString(stringNumber)
-{
-	if (stringNumber == null || stringNumber == "") return stringNumber;
-	var result = "";
-	for (var i=0; i<stringNumber.length; i++)
-		if (stringNumber[i] >= "0" && stringNumber[i] <= "9")
-			result += stringNumber[i];
-	return result;
 }
 function FormatSnils(snilsNumber)
 {
@@ -240,36 +218,3 @@ function CheckButtons(input, inputButton, randomFunc, fixFunc, calcFunc, thresho
 		}
 	}
 }
-
-var innul;
-var innfl;
-var ogrnul;
-var ogrnfl;
-var okpo;
-var snils;
-var innulButton;
-var innflButton;
-var ogrnulButton;
-var ogrnflButton;
-var okpoButton;
-var snilsButton;
-
-document.addEventListener("DOMContentLoaded", function(){
-		innul = document.getElementById('innul');
-		innfl = document.getElementById('innfl');
-		ogrnul = document.getElementById('ogrnul');
-		ogrnfl = document.getElementById('ogrnfl');
-		okpo = document.getElementById('okpo');
-		snils = document.getElementById('snils');
-		innulButton = document.getElementById('innulbutton');
-		innflButton = document.getElementById('innflbutton');
-		ogrnulButton = document.getElementById('ogrnulbutton');
-		ogrnflButton = document.getElementById('ogrnflbutton');
-		okpoButton = document.getElementById('okpobutton');
-		snilsButton = document.getElementById('snilsbutton');
-
-		var input = document.getElementsByTagName('input');
-		for (var i = 0; i < input.length; i++)
-			if (input[i].type == 'text' && input[i].oninput)
-				input[i].oninput();
-});
