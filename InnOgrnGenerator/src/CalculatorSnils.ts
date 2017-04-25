@@ -2,16 +2,16 @@
 
 namespace InnKppCalculator {
     export class CalculatorSnils extends CalculatorBase {
-        private formatCheckbox: HTMLInputElement;
+        private readonly formatCheckbox: HTMLInputElement;
 
         constructor(inputId: string, formatCheckboxId: string)
         {
             super(inputId, 9, false, [], 10, 11);
             this.formatCheckbox = document.getElementById(formatCheckboxId) as HTMLInputElement;
-            this.formatCheckbox.onchange = () => this.reformatSnils();
+            this.formatCheckbox.onchange = () => this.reformat();
         }
 
-        calcInternal(snils: string): string
+        protected calcInternal(snils: string): string
         {
             let originalSnils = snils;
             snils = this.getNumbersFromString(snils);
@@ -21,7 +21,7 @@ namespace InnKppCalculator {
             originalSnils = snils;
             snils = snils.substr(0, 9);
             if (parseInt(snils, 10) < 1001999)
-                return this.formatSnils(originalSnils + "00");
+                return this.format(`${originalSnils}00`);
 
             let c = 0;
             for (let i = 9; i > 0; i--)
@@ -30,10 +30,10 @@ namespace InnKppCalculator {
                 c = c % 101;
             if (c === 100 || c === 101)
                 c = 0;
-            return this.formatSnils(snils + (c < 10 ? `0${c}` : c));
+            return this.format(snils + (c < 10 ? `0${c}` : c));
         }
 
-        formatSnils(snilsNumber)
+        private format(snilsNumber)
         {
             snilsNumber = this.getNumbersFromString(snilsNumber);
             if (snilsNumber.length < 11)
@@ -49,9 +49,9 @@ namespace InnKppCalculator {
             return `${part1}-${part2}-${part3} ${part4}`;
         }
 
-        reformatSnils()
+        private reformat()
         {
-            this.value = this.formatSnils(this.value);
+            this.value = this.format(this.value);
         }
     }
 }

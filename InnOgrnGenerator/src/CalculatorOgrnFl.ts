@@ -7,7 +7,7 @@ namespace InnKppCalculator {
             super(inputId, 14, false, [3, 4]);
         }
 
-        calcInternal(ogrn: string): string
+        protected calcInternal(ogrn: string): string
         {
             ogrn = ogrn.substr(0, 14);
             const op = parseInt(ogrn, 10);
