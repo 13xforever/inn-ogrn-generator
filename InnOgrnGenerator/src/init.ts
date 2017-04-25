@@ -26,10 +26,35 @@ declare class Clipboard {
 
 var calculators: any;
 var clipboard: Clipboard;
+var initialized = false;
 
-window.addEventListener("load",
-    () =>
+function init(src: string)
+{
+    let diag = document.getElementById("load-diag") as HTMLDivElement;
+    if (!initialized)
     {
         calculators = InnKppCalculator.init();
         clipboard = new Clipboard('input.cb-copy');
-    });
+        initialized = true;
+        diag.innerText = src;
+    } else
+    {
+        diag.innerHTML += `<br/>${src}`;
+    }
+}
+
+function toggleDiag()
+{
+    let diag = document.getElementById("load-diag") as HTMLDivElement;
+    if (diag.style.display === "none")
+    {
+        diag.style.display = "block";
+    } else
+    {
+        diag.style.display = "none";
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => init("DOMContentLoaded"));
+window.addEventListener("load", () => init("load"));
+setTimeout(() => init("setTimeout"), 100); //eat shit, safari
