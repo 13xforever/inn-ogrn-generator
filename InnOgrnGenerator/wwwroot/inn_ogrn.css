@@ -1,5 +1,6 @@
 input[type='text'] {
 	width: 110px;
+	-webkit-appearance: none;
 }
 
 input[type='button'] {
@@ -17,9 +18,9 @@ input.cb-copy {
 }
 
 input.glowGreen {
-	-webkit-box-shadow: 0 0 5px #00ff00;
-	-moz-box-shadow: 0 0 5px #00ff00;
-	box-shadow: 0 0 5px #00ff00;
+	-webkit-box-shadow: 0 0 5px #0f0;
+	-moz-box-shadow: 0 0 5px #0f0;
+	box-shadow: 0 0 5px #0f0;
 }
 
 input.glowRed {
