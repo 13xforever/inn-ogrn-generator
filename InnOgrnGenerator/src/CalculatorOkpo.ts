@@ -7,7 +7,7 @@ namespace InnKppCalculator {
             super(inputId, 8, true, [], 13);
         }
 
-        calcInternal(okpo: string): string
+        protected calcInternal(okpo: string): string
         {
             let c = 0;
             for (let i = 1; i < okpo.length; i++)

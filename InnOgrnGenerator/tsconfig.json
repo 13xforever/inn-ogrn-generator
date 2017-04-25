@@ -8,7 +8,7 @@
 		"preserveConstEnums": true,
 		"strictNullChecks": true,
 		//"alwaysStrict": true,
-		"inlineSourceMap": true,
+		//"inlineSourceMap": true,
 		"outFile": "wwwroot/inn_ogrn.js"
 	},
     "compileOnSave": true,

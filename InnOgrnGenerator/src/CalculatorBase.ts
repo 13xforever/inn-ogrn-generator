@@ -42,7 +42,7 @@ namespace InnKppCalculator {
 
         protected set buttonFunc(func: () => void) { this.button.onclick = func; }
 
-        abstract calcInternal(existingValue: string): string;
+        protected abstract calcInternal(existingValue: string): string;
 
         protected calc(existingValue: string): string
         {
