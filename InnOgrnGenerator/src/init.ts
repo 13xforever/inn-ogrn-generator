@@ -30,20 +30,14 @@ var initialized = false;
 
 function init(src: string)
 {
-    let diag = document.getElementById("load-diag") as HTMLDivElement;
     if (!initialized)
     {
         calculators = InnKppCalculator.init();
         clipboard = new Clipboard('input.cb-copy');
         initialized = true;
-        diag.innerText = src;
-        diag.style.display = "none";
-    } else
-    {
-        diag.innerHTML += `<br/>${src}`;
     }
 }
 
 document.addEventListener("DOMContentLoaded", () => init("DOMContentLoaded"));
 window.addEventListener("load", () => init("load"));
-setTimeout(() => init("setTimeout"), 100); //eat shit, safari
+//setTimeout(() => init("setTimeout"), 100);
