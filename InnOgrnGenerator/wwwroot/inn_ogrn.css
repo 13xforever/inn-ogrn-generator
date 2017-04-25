@@ -5,9 +5,11 @@ input[type='text'] {
 input[type='button'] {
 	width: 80px;
 	outline: none;
-	transition: all 0.25s ease-in-out;
 	-webkit-transition: all 0.25s ease-in-out;
 	-moz-transition: all 0.25s ease-in-out;
+	-ms-transition: all 0.25s ease-in-out;
+	-o-transition: all 0.25s ease-in-out;
+	transition: all 0.25s ease-in-out;
 }
 
 input.cb-copy {
@@ -15,15 +17,15 @@ input.cb-copy {
 }
 
 input.glowGreen {
-	box-shadow: 0 0 5px rgba(0, 255, 0, 1);
-	-webkit-box-shadow: 0 0 5px rgba(0, 255, 0, 1);
-	-moz-box-shadow: 0 0 5px rgba(0, 255, 0, 1);
+	-webkit-box-shadow: 0 0 5px #00ff00;
+	-moz-box-shadow: 0 0 5px #00ff00;
+	box-shadow: 0 0 5px #00ff00;
 }
 
 input.glowRed {
-	box-shadow: 0 0 5px rgba(255, 0, 0, 1);
-	-webkit-box-shadow: 0 0 5px rgba(255, 0, 0, 1);
-	-moz-box-shadow: 0 0 5px rgba(255, 0, 0, 1);
+	-webkit-box-shadow: 0 0 5px red;
+	-moz-box-shadow: 0 0 5px red;
+	box-shadow: 0 0 5px red;
 }
 
 label {
