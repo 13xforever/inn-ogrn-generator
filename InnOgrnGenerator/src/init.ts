@@ -37,21 +37,10 @@ function init(src: string)
         clipboard = new Clipboard('input.cb-copy');
         initialized = true;
         diag.innerText = src;
+        diag.style.display = "none";
     } else
     {
         diag.innerHTML += `<br/>${src}`;
-    }
-}
-
-function toggleDiag()
-{
-    let diag = document.getElementById("load-diag") as HTMLDivElement;
-    if (diag.style.display === "none")
-    {
-        diag.style.display = "block";
-    } else
-    {
-        diag.style.display = "none";
     }
 }
 
