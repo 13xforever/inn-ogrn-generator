@@ -1,3 +1,4 @@
+'use strict';
 var InnKppCalculator;
 (function (InnKppCalculator) {
     class CalculatorBase {
@@ -23,7 +24,7 @@ var InnKppCalculator;
         set buttonFunc(func) { this.button.onclick = func; }
         calc(existingValue) {
             if (existingValue == null)
-                return "";
+                return '';
             if (existingValue.length < 9)
                 return existingValue;
             return this.calcInternal(existingValue);
@@ -35,7 +36,7 @@ var InnKppCalculator;
             this.value = this.calc(this.value);
         }
         checkButtons() {
-            let pureNum = this.getNumbersFromString(this.value) || "";
+            let pureNum = this.getNumbersFromString(this.value) || '';
             if (pureNum.length < this.threshold) {
                 this.cssClass = '';
                 this.buttonText = 'Random';
@@ -112,7 +113,7 @@ var InnKppCalculator;
             this.coeff2 = [3, 7, 2, 4, 10, 3, 5, 9, 4, 6, 8];
         }
         calcInternal(inn) {
-            inn = inn.substr(0, 10);
+            inn = inn.substring(0, 10);
             const parsedInn = this.parseNum(inn);
             const c1 = this.calcChecksum(parsedInn, this.coeff1);
             parsedInn.push(c1);
@@ -130,7 +131,7 @@ var InnKppCalculator;
             this.coeff = [2, 4, 10, 3, 5, 9, 4, 6, 8];
         }
         calcInternal(inn) {
-            inn = inn.substr(0, 9);
+            inn = inn.substring(0, 9);
             const parsedInn = this.parseNum(inn);
             const c = this.calcChecksum(parsedInn, this.coeff);
             return inn + c;
@@ -145,7 +146,7 @@ var InnKppCalculator;
             super(inputId, 14, false, [3, 4]);
         }
         calcInternal(ogrn) {
-            ogrn = ogrn.substr(0, 14);
+            ogrn = ogrn.substring(0, 14);
             const op = parseInt(ogrn, 10);
             const c = op % 13 % 10;
             return ogrn + c;
@@ -160,7 +161,7 @@ var InnKppCalculator;
             super(inputId, 12, false, [1, 2, 5]);
         }
         calcInternal(ogrn) {
-            ogrn = ogrn.substr(0, 12);
+            ogrn = ogrn.substring(0, 12);
             const op = parseInt(ogrn, 10);
             const c = (op % 11) % 10;
             return ogrn + c;
@@ -184,7 +185,7 @@ var InnKppCalculator;
                     c += parseInt(okpo[i - 1], 10) * ((i + 1) % 10 + 1);
             }
             c = (c % 11) % 10;
-            return okpo.substr(0, okpo.length - 1) + c;
+            return okpo.substring(0, okpo.length - 1) + c;
         }
     }
     InnKppCalculator.CalculatorOkpo = CalculatorOkpo;
@@ -203,7 +204,7 @@ var InnKppCalculator;
             if (snils.length < 9)
                 return originalSnils;
             originalSnils = snils;
-            snils = snils.substr(0, 9);
+            snils = snils.substring(0, 9);
             if (parseInt(snils, 10) < 1001999)
                 return this.format(`${originalSnils}00`);
             let c = 0;
@@ -221,10 +222,10 @@ var InnKppCalculator;
                 return snilsNumber;
             if (!this.formatCheckbox.checked)
                 return snilsNumber;
-            const part1 = snilsNumber.substr(0, 3);
-            const part2 = snilsNumber.substr(3, 3);
-            const part3 = snilsNumber.substr(6, 3);
-            const part4 = snilsNumber.substr(9, 2);
+            const part1 = snilsNumber.substring(0, 3);
+            const part2 = snilsNumber.substring(3, 6);
+            const part3 = snilsNumber.substring(6, 9);
+            const part4 = snilsNumber.substring(9, 11);
             return `${part1}-${part2}-${part3} ${part4}`;
         }
         reformat() {
@@ -250,12 +251,12 @@ var InnKppCalculator;
 var calculators;
 var clipboard;
 var initialized = false;
-function init(src) {
+function init() {
     if (!initialized) {
         calculators = InnKppCalculator.init();
-        clipboard = new Clipboard('input.cb-copy');
+        clipboard = new ClipboardJS('input.cb-copy');
         initialized = true;
     }
 }
-document.addEventListener("DOMContentLoaded", () => init("DOMContentLoaded"));
-window.addEventListener("load", () => init("load"));
+document.addEventListener("DOMContentLoaded", init);
+window.addEventListener("load", init);

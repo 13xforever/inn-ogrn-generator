@@ -1,4 +1,5 @@
 /// <reference path="CalculatorBase.ts"/>
+'use strict';
 
 namespace InnKppCalculator {
     export class CalculatorOkpo extends CalculatorBase {
@@ -19,7 +20,7 @@ namespace InnKppCalculator {
                     c += parseInt(okpo[i - 1], 10) * ((i + 1) % 10 + 1);
             }
             c = (c % 11) % 10;
-            return okpo.substr(0, okpo.length - 1) + c;
+            return okpo.substring(0, okpo.length - 1) + c;
         }
     }
 }

@@ -1,4 +1,5 @@
 /// <reference path="CalculatorInnBase.ts"/>
+'use strict';
 
 namespace InnKppCalculator {
     export class CalculatorInnUl extends CalculatorInnBase {
@@ -11,7 +12,7 @@ namespace InnKppCalculator {
 
         protected calcInternal(inn: string): string
         {
-            inn = inn.substr(0, 9);
+            inn = inn.substring(0, 9);
             const parsedInn = this.parseNum(inn);
             const c = this.calcChecksum(parsedInn, this.coeff);
             return inn + c;

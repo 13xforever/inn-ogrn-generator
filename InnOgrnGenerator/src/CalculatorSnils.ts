@@ -1,4 +1,5 @@
 /// <reference path="CalculatorBase.ts"/>
+'use strict';
 
 namespace InnKppCalculator {
     export class CalculatorSnils extends CalculatorBase {
@@ -19,7 +20,7 @@ namespace InnKppCalculator {
                 return originalSnils;
 
             originalSnils = snils;
-            snils = snils.substr(0, 9);
+            snils = snils.substring(0, 9);
             if (parseInt(snils, 10) < 1001999)
                 return this.format(`${originalSnils}00`);
 
@@ -33,7 +34,7 @@ namespace InnKppCalculator {
             return this.format(snils + (c < 10 ? `0${c}` : c));
         }
 
-        private format(snilsNumber)
+        private format(snilsNumber: string)
         {
             snilsNumber = this.getNumbersFromString(snilsNumber);
             if (snilsNumber.length < 11)
@@ -42,10 +43,10 @@ namespace InnKppCalculator {
             if (!this.formatCheckbox.checked)
                 return snilsNumber;
 
-            const part1 = snilsNumber.substr(0, 3);
-            const part2 = snilsNumber.substr(3, 3);
-            const part3 = snilsNumber.substr(6, 3);
-            const part4 = snilsNumber.substr(9, 2);
+            const part1 = snilsNumber.substring(0, 3);
+            const part2 = snilsNumber.substring(3, 6);
+            const part3 = snilsNumber.substring(6, 9);
+            const part4 = snilsNumber.substring(9, 11);
             return `${part1}-${part2}-${part3} ${part4}`;
         }
 

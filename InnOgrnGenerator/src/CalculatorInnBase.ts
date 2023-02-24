@@ -1,4 +1,5 @@
 /// <reference path="CalculatorBase.ts"/>
+'use strict';
 
 module InnKppCalculator {
     export abstract class CalculatorInnBase extends CalculatorBase {

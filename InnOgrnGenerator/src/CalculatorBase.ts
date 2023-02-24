@@ -1,3 +1,5 @@
+'use strict';
+
 namespace InnKppCalculator {
     export abstract class CalculatorBase {
         protected readonly input: HTMLInputElement;
@@ -21,7 +23,7 @@ namespace InnKppCalculator {
             this.validFirstDigits = validFirstDigits;
             this.input = document.getElementById(inputId) as HTMLInputElement;
             this.input.oninput = () => this.checkButtons();
-            this.button = document.getElementById(inputId + "button") as HTMLInputElement;
+            this.button = document.getElementById(inputId + "button") as HTMLButtonElement;
             this.button.onclick = () => this.random();
             this.maxlen = maxlen || this.input.maxLength;
         }
@@ -47,7 +49,7 @@ namespace InnKppCalculator {
         protected calc(existingValue: string): string
         {
             if (existingValue == null)
-                return "";
+                return '';
 
             if (existingValue.length < 9)
                 return existingValue;
@@ -67,7 +69,7 @@ namespace InnKppCalculator {
 
         checkButtons()
         {
-            let pureNum = this.getNumbersFromString(this.value) || "";
+            let pureNum = this.getNumbersFromString(this.value) || '';
             if (pureNum.length < this.threshold)
             {
                 this.cssClass = '';

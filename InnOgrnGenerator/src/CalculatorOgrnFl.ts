@@ -1,4 +1,5 @@
 /// <reference path="CalculatorBase.ts"/>
+'use strict';
 
 namespace InnKppCalculator {
     export class CalculatorOgrnFl extends CalculatorBase {
@@ -9,7 +10,7 @@ namespace InnKppCalculator {
 
         protected calcInternal(ogrn: string): string
         {
-            ogrn = ogrn.substr(0, 14);
+            ogrn = ogrn.substring(0, 14);
             const op = parseInt(ogrn, 10);
             const c = op % 13 % 10;
             return ogrn + c;

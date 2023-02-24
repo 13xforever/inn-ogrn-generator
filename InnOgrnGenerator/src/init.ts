@@ -5,6 +5,7 @@
 /// <reference path="CalculatorOgrnFl.ts"/>
 /// <reference path="CalculatorOkpo.ts"/>
 /// <reference path="CalculatorSnils.ts"/>
+'use strict';
 
 namespace InnKppCalculator {
     export function init(): CalculatorBase[]
@@ -20,24 +21,23 @@ namespace InnKppCalculator {
     }
 }
 
-declare class Clipboard {
+declare class ClipboardJS {
     constructor(selector: string);
 }
 
 var calculators: any;
-var clipboard: Clipboard;
+var clipboard: ClipboardJS;
 var initialized = false;
 
-function init(src: string)
+function init()
 {
     if (!initialized)
     {
         calculators = InnKppCalculator.init();
-        clipboard = new Clipboard('input.cb-copy');
+        clipboard = new ClipboardJS('input.cb-copy');
         initialized = true;
     }
 }
 
-document.addEventListener("DOMContentLoaded", () => init("DOMContentLoaded"));
-window.addEventListener("load", () => init("load"));
-//setTimeout(() => init("setTimeout"), 100);
+document.addEventListener("DOMContentLoaded", init);
+window.addEventListener("load", init);
