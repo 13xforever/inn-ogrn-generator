@@ -8,7 +8,7 @@
 'use strict';
 
 namespace InnKppCalculator {
-    export function init(): CalculatorBase[]
+    export function initCalculator(): CalculatorBase[]
     {
         return [
             new CalculatorInnUl("innul"),
@@ -24,6 +24,11 @@ namespace InnKppCalculator {
 declare class ClipboardJS {
     constructor(selector: string);
 }
+declare namespace bootstrap {
+    class Tooltip {
+        constructor(element: Element);
+    }
+}
 
 var calculators: any;
 var clipboard: ClipboardJS;
@@ -33,8 +38,11 @@ function init()
 {
     if (!initialized)
     {
-        calculators = InnKppCalculator.init();
+        InnKppCalculator.initTheme();
+        calculators = InnKppCalculator.initCalculator();
         clipboard = new ClipboardJS('input.cb-copy');
+        //const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+        //[...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
         initialized = true;
     }
 }

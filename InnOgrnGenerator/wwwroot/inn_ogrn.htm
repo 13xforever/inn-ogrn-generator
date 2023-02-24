@@ -1,55 +1,90 @@
 ﻿<!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-bs-theme="auto">
 <head>
 	<title>Калькулятор ИНН и ОГРН</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta charset="utf-8"/>
-	<link rel="stylesheet" type="text/css" href="inn_ogrn.min.css" />
-	<script async src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js" integrity="sha512-7O5pXpc0oCRrxk8RUfDYFgn0nO1t+jLuIOQdOMRp4APB7uZ4vSjspzp5y6YDtDs4VzUSTbWzBFZ/LKJhnyFOKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script type="text/javascript" src="inn_ogrn.min.js" async></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/css/bootstrap.min.css"
+		integrity="sha512-72OVeAaPeV8n3BdZj7hOkaPSEk/uwpDkaGyP4W2jSzAC8tfiO4LMEDWoL3uFp5mcZu+8Eehb4GhZWFwvrss69Q=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-	<div id="calc">
-		<div>
-			<label for="innul">ИНН ЮЛ</label>
-			<input id="innul" type="text" maxlength="10" placeholder="10 цифр">
-			<input id="innulbutton" type="button" value="Random">
-			<input id="innulcopy" type="button" class="cb-copy" data-clipboard-target="#innul" value="Copy">
+	<div id="calc" class="container mt-3">
+		<div class="row mb-3">
+			<label for="innul" class="col-3 col-sm-3 col-md-2 col-xxl-1 col-form-label">ИНН ЮЛ</label>
+			<div class="col-9 col-sm-8 col-md-6 col-lg-5 col-xl-4">
+				<div class="input-group">
+					<input id="innul" type="text" class="form-control" maxlength="10" placeholder="10 цифр">
+					<button id="innulbutton" type="button" class="btn btn-outline-primary">🎲</button>
+					<button id="innulcopy" type="button" class="btn btn-outline-secondary" data-clipboard-target="#innul">📋</button>
+				</div>
+			</div>
 		</div>
-		<div>
-			<label for="innfl">ИНН ИП</label>
-			<input id="innfl" type="text" maxlength="12" placeholder="12 цифр">
-			<input id="innflbutton" type="button" value="Random">
-			<input id="innflcopy" type="button" class="cb-copy" data-clipboard-target="#innfl" value="Copy">
+		<div class="row mb-3">
+			<label for="innfl" class="col-3 col-sm-3 col-md-2 col-xxl-1 col-form-label">ИНН ИП</label>
+			<div class="col-9 col-sm-8 col-md-6 col-lg-5 col-xl-4">
+				<div class="input-group">
+					<input id="innfl" type="text" class="form-control" maxlength="12" placeholder="12 цифр">
+					<button id="innflbutton" type="button" class="btn btn-outline-primary">🎲</button>
+					<button id="innflcopy" type="button" class="btn btn-outline-secondary" data-clipboard-target="#innfl">📋</button>
+				</div>
+			</div>
 		</div>
-		<div>
-			<label for="ogrnul">ОГРН ЮЛ</label>
-			<input id="ogrnul" type="text" maxlength="13" placeholder="13 цифр">
-			<input id="ogrnulbutton" type="button" value="Random">
-			<input id="ogrnulcopy" type="button" class="cb-copy" data-clipboard-target="#ogrnul" value="Copy">
+		<div class="row mb-3">
+			<label for="ogrnul" class="col-3 col-sm-3 col-md-2 col-xxl-1 col-form-label">ОГРН ЮЛ</label>
+			<div class="col-9 col-sm-8 col-md-6 col-lg-5 col-xl-4">
+				<div class="input-group">
+					<input id="ogrnul" type="text" class="form-control" maxlength="13" placeholder="13 цифр">
+					<button id="ogrnulbutton" type="button" class="btn btn-outline-primary">🎲</button>
+					<button id="ogrnulcopy" type="button" class="btn btn-outline-secondary" data-clipboard-target="#ogrnul">📋</button>
+				</div>
+			</div>
 		</div>
-		<div>
-			<label for="ogrnfl">ОГРН ИП</label>
-			<input id="ogrnfl" type="text" maxlength="15" placeholder="15 цифр">
-			<input id="ogrnflbutton" type="button" value="Random">
-			<input id="ogrnflcopy" type="button" class="cb-copy" data-clipboard-target="#ogrnfl" value="Copy">
+		<div class="row mb-3">
+			<label for="ogrnfl" class="col-3 col-sm-3 col-md-2 col-xxl-1 col-form-label">ОГРН ИП</label>
+			<div class="col-9 col-sm-8 col-md-6 col-lg-5 col-xl-4">
+				<div class="input-group">
+					<input id="ogrnfl" type="text" class="form-control" class="form-control" maxlength="15" placeholder="15 цифр">
+					<button id="ogrnflbutton" type="button" class="btn btn-outline-primary">🎲</button>
+					<button id="ogrnflcopy" type="button" class="btn btn-outline-secondary" data-clipboard-target="#ogrnfl">📋</button>
+				</div>
+			</div>
 		</div>
-		<div>
-			<label for="okpo">ОКПО</label>
-			<input id="okpo" type="text" maxlength="14" placeholder="от 8 до 14 цифр">
-			<input id="okpobutton" type="button" value="Random">
-			<input id="okpocopy" type="button" class="cb-copy" data-clipboard-target="#okpo" value="Copy">
+		<div class="row mb-3">
+			<label for="okpo" class="col-3 col-sm-3 col-md-2 col-xxl-1 col-form-label">ОКПО</label>
+			<div class="col-9 col-sm-8 col-md-6 col-lg-5 col-xl-4">
+				<div class="input-group">
+					<input id="okpo" type="text" class="form-control" maxlength="14" placeholder="от 8 до 14 цифр">
+					<button id="okpobutton" type="button" class="btn btn-outline-primary">🎲</button>
+					<button id="okpocopy" type="button" class="btn btn-outline-secondary" data-clipboard-target="#okpo">📋</button>
+				</div>
+			</div>
 		</div>
-		<div>
-			<label for="snils">СНИЛС</label>
-			<input id="snils" type="text" maxlength="14" placeholder="11 цифр">
-			<input id="snilsbutton" type="button" value="Random">
-			<input id="snilscopy" type="button" class="cb-copy" data-clipboard-target="#snils" value="Copy">
+		<div class="row mb-3">
+			<label for="snils" class="col-3 col-sm-3 col-md-2 col-xxl-1 col-form-label">СНИЛС</label>
+			<div class="col-9 col-sm-8 col-md-6 col-lg-5 col-xl-4">
+				<div class="input-group">
+					<input id="snils" type="text" class="form-control" maxlength="14" placeholder="11 цифр">
+					<button id="snilsbutton" type="button" class="btn btn-outline-primary">🎲</button>
+					<button id="snilscopy" type="button" class="btn btn-outline-secondary" data-clipboard-target="#snils">📋</button>
+				</div>
+			</div>
 		</div>
-		<div>
-			<input id="format_snils" type="checkbox">
-			<label for="format_snils" class="checkbox">Форматировать СНИЛС</label>
+		<div class="row mb-3">
+			<div class="offset-3 offset-sm-3 offset-md-2 offset-xxl-1 offset-form-label">
+				<div class="form-check">
+					<input id="format_snils" type="checkbox" class="form-check-input">
+					<label for="format_snils" class="form-check-label">Форматировать СНИЛС</label>
+				</div>
+			</div>
 		</div>
 	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js"
+		integrity="sha512-Sct/LCTfkoqr7upmX9VZKEzXuRk5YulFoDTunGapYJdlCwA+Rl4RhgcPCLf7awTNLmIVrszTPNUFu4MSesep5Q=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"
+		integrity="sha512-7O5pXpc0oCRrxk8RUfDYFgn0nO1t+jLuIOQdOMRp4APB7uZ4vSjspzp5y6YDtDs4VzUSTbWzBFZ/LKJhnyFOKw=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script defer src="inn_ogrn.min.js"></script>
 </body>
 </html>
