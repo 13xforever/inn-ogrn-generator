@@ -38,26 +38,26 @@ var InnKppCalculator;
         checkButtons() {
             let pureNum = this.getNumbersFromString(this.value) || '';
             if (pureNum.length < this.threshold) {
-                this.cssClass = '';
-                this.buttonText = 'Random';
+                this.cssClass = 'form-control';
+                this.button.textContent = '🎲';
                 this.buttonFunc = () => this.random();
             }
             else {
                 this.buttonFunc = () => this.fix();
                 if (pureNum.length === this.maxlen || this.input.id === 'okpo') {
                     if (this.value === this.calc(this.value)) {
-                        this.cssClass = 'glowGreen';
-                        this.buttonText = 'Random';
+                        this.cssClass = 'form-control is-valid';
+                        this.button.textContent = '🎲';
                         this.buttonFunc = () => this.random();
                     }
                     else {
-                        this.cssClass = 'glowRed';
-                        this.buttonText = 'Fix';
+                        this.cssClass = 'form-control is-invalid';
+                        this.button.textContent = '🔧';
                     }
                 }
                 else {
-                    this.cssClass = '';
-                    this.buttonText = 'Fix';
+                    this.cssClass = 'form-control';
+                    this.button.textContent = '🔧';
                 }
             }
         }
@@ -236,7 +236,19 @@ var InnKppCalculator;
 })(InnKppCalculator || (InnKppCalculator = {}));
 var InnKppCalculator;
 (function (InnKppCalculator) {
-    function init() {
+    function setTheme() {
+        let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-bs-theme', theme);
+    }
+    function initTheme() {
+        setTheme();
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setTheme);
+    }
+    InnKppCalculator.initTheme = initTheme;
+})(InnKppCalculator || (InnKppCalculator = {}));
+var InnKppCalculator;
+(function (InnKppCalculator) {
+    function initCalculator() {
         return [
             new InnKppCalculator.CalculatorInnUl("innul"),
             new InnKppCalculator.CalculatorInnFl("innfl"),
@@ -246,14 +258,15 @@ var InnKppCalculator;
             new InnKppCalculator.CalculatorSnils("snils", "format_snils")
         ];
     }
-    InnKppCalculator.init = init;
+    InnKppCalculator.initCalculator = initCalculator;
 })(InnKppCalculator || (InnKppCalculator = {}));
 var calculators;
 var clipboard;
 var initialized = false;
 function init() {
     if (!initialized) {
-        calculators = InnKppCalculator.init();
+        InnKppCalculator.initTheme();
+        calculators = InnKppCalculator.initCalculator();
         clipboard = new ClipboardJS('input.cb-copy');
         initialized = true;
     }

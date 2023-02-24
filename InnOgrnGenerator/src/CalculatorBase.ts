@@ -72,8 +72,8 @@ namespace InnKppCalculator {
             let pureNum = this.getNumbersFromString(this.value) || '';
             if (pureNum.length < this.threshold)
             {
-                this.cssClass = '';
-                this.buttonText = 'Random';
+                this.cssClass = 'form-control';
+                this.button.textContent = '🎲';
                 this.buttonFunc = () => this.random();
             } else
             {
@@ -82,18 +82,18 @@ namespace InnKppCalculator {
                 {
                     if (this.value === this.calc(this.value))
                     {
-                        this.cssClass = 'glowGreen';
-                        this.buttonText = 'Random';
+                        this.cssClass = 'form-control is-valid';
+                        this.button.textContent = '🎲';
                         this.buttonFunc = () => this.random();
                     } else
                     {
-                        this.cssClass = 'glowRed';
-                        this.buttonText = 'Fix';
+                        this.cssClass = 'form-control is-invalid';
+                        this.button.textContent = '🔧';
                     }
                 } else
                 {
-                    this.cssClass = '';
-                    this.buttonText = 'Fix';
+                    this.cssClass = 'form-control';
+                    this.button.textContent = '🔧';
                 }
             }
         }
