@@ -38,12 +38,12 @@ function init()
 {
     if (!initialized)
     {
+        initialized = true;
         InnKppCalculator.initTheme();
         calculators = InnKppCalculator.initCalculator();
         clipboard = new ClipboardJS('input.cb-copy');
         //const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
         //[...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
-        initialized = true;
     }
 }
 

@@ -265,10 +265,10 @@ var clipboard;
 var initialized = false;
 function init() {
     if (!initialized) {
+        initialized = true;
         InnKppCalculator.initTheme();
         calculators = InnKppCalculator.initCalculator();
         clipboard = new ClipboardJS('input.cb-copy');
-        initialized = true;
     }
 }
 document.addEventListener("DOMContentLoaded", init);
